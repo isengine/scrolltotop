@@ -6,14 +6,14 @@ use is\Helpers\System;
 use is\Helpers\Objects;
 use is\Helpers\Strings;
 
-$instance = $object -> get('instance');
-$sets = &$object -> settings;
+$instance = $this -> get('instance');
+$sets = &$this -> settings;
 
 // добавить в мастер модулей методы
 // get
 // get first value
 
-$class = $object -> eget('container') -> classes;
+$class = $this -> eget('container') -> classes;
 $class = Strings::join($class);
 $class = Strings::split($class);
 $class = Objects::first($class, 'value');
@@ -33,13 +33,13 @@ if (!$class || !$class_active) {
 
 <?php
 
-$object -> eget('item') -> addContent($sets['label']);
+$this -> eget('item') -> addContent($sets['label']);
 
-$object -> eget('container') -> open(true);
-$object -> eget('item') -> open(true);
-$object -> eget('item') -> content(true);
-$object -> eget('item') -> close(true);
-$object -> eget('container') -> close(true);
+$this -> eget('container') -> open(true);
+$this -> eget('item') -> open(true);
+$this -> eget('item') -> content(true);
+$this -> eget('item') -> close(true);
+$this -> eget('container') -> close(true);
 
 ?>
 
