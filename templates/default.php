@@ -6,14 +6,14 @@ use is\Helpers\System;
 use is\Helpers\Objects;
 use is\Helpers\Strings;
 
-$instance = $this -> get('instance');
-$sets = &$this -> settings;
+$instance = $this->get('instance');
+$sets = &$this->settings;
 
 // добавить в мастер модулей методы
 // get
 // get first value
 
-$class = $this -> eget('container') -> classes;
+$class = $this->eget('container')->classes;
 $class = Strings::join($class);
 $class = Strings::split($class);
 $class = Objects::first($class, 'value');
@@ -23,8 +23,9 @@ $class_active = Strings::join($class_active);
 $class_active = Strings::split($class_active);
 $class_active = Objects::first($class_active, 'value');
 
-if (!$class || !$class_active) {
-	return;
+if (!$class || !$class_active)
+{
+    return;
 }
 
 ?>
@@ -33,13 +34,13 @@ if (!$class || !$class_active) {
 
 <?php
 
-$this -> eget('item') -> addContent($sets['label']);
+$this->eget('item')->addContent($sets['label']);
 
-$this -> eget('container') -> open(true);
-$this -> eget('item') -> open(true);
-$this -> eget('item') -> content(true);
-$this -> eget('item') -> close(true);
-$this -> eget('container') -> close(true);
+$this->eget('container')->open(true);
+$this->eget('item')->open(true);
+$this->eget('item')->content(true);
+$this->eget('item')->close(true);
+$this->eget('container')->close(true);
 
 ?>
 
@@ -47,7 +48,8 @@ $this -> eget('container') -> close(true);
 (function() {
   'use strict';
 
-  function trackScroll() {
+  function trackScroll()
+    {
     var scrolled = window.pageYOffset;
     var coords = document.documentElement.clientHeight;
 
@@ -59,11 +61,12 @@ $this -> eget('container') -> close(true);
     }
   }
 
-  function backToTop() {
+  function backToTop()
+    {
     if (window.pageYOffset > 0) {
       //window.scrollBy(0, -80);
       //setTimeout(backToTop, 0);
-	  window.scrollTo({
+      window.scrollTo({
         top: 0,
         behavior: 'smooth'
       });
